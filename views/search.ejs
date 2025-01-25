@@ -1,0 +1,18 @@
+<h1>Search Results</h1>
+
+<div>
+  <% if(publication != '') { %>
+    <% publication.forEach(function(publication, index){ %>
+    <a href="/publication/<%= publication._id %>">
+      <% if (publication.image.startsWith('https')) { %>
+        <img src="<%- publication.image %>" style="top: 20px;" alt="<%- publication.name %>" loading="lazy">
+      <% } else { %>
+        <img src="/uploads/<%- publication.image %>" style="top: 20px;" alt="<%- publication.name %>" loading="lazy">
+      <% } %>
+      <div><%= publication.name %></div>
+    </a>
+    <% }) %>
+  <% } else { %>
+    <p>No items found.</p>
+  <% } %>
+</div>

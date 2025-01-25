@@ -1,0 +1,27 @@
+<head>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<section class="latest-section">
+  <div class="section-header">
+      Latest Publications
+  </div>
+  <div class="latest-publications">
+      <% if(publication && publication.length > 0) { %>
+          <% publication.forEach(function(publication, index){ %>
+              <div class="latest-publication">
+                  <a href="/publication/<%= publication._id %>">
+                      <% if (publication.image.startsWith('https')) { %>
+                          <img src="<%- publication.image %>" alt="<%- publication.name %>" loading="lazy">
+                      <% } else { %>
+                          <img src="/uploads/<%- publication.image %>" alt="<%- publication.name %>" loading="lazy">
+                      <% } %>
+                      <div class="publication-name"><%= publication.name %></div>
+                  </a>
+              </div>
+          <% }) %>
+      <% } else { %>
+          <p>No items found.</p>
+      <% } %>
+  </div>
+</section>

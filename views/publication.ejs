@@ -1,0 +1,86 @@
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<%- include("partials/navbar.ejs") %>
+
+<% if(publication != null ) { %>
+
+  <div class="container">
+
+    <!-- Left Side -->
+
+    <div class="left-side">
+      <div class="title-cuisine">
+        <h1><%- publication.name %></h1>
+        <h2><%- publication.cuisine %></h2>
+      </div>
+
+        <div class="ingredients">
+            <h3>Ingredients</h3>
+            <ul>
+                <% publication.ingredients.forEach(function(ingredient, index){ %>
+                    <li><%= ingredient %></li>
+                <% }) %>
+            </ul>
+        </div>
+
+        <div class="instructions">
+          <h3>Cooking Instructions</h3>
+          <p><%- publication.instructions %></p>
+        </div>
+
+        <div class="action-buttons">
+          <!-- Update Button -->
+          <form action="/update-publication/<%= publication._id %>" method="GET">
+              <button type="submit">Update publication</button>
+          </form>
+      
+          <!-- Delete Button -->
+          <form action="/publication/<%= publication._id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete</button>
+          </form>
+      </div>
+
+        
+    </div>
+
+    <!-- Right Side -->
+    <div class="right-side">
+        <div class="image-container">
+            <% if (publication.image.startsWith('https')) { %>
+                <img src="<%- publication.image %>" alt="<%- publication.name %>" loading="lazy" class="publication-image">
+            <% } else { %>
+                <img src="/uploads/<%- publication.image %>" alt="<%- publication.name %>" loading="lazy" class="publication-image">
+            <% } %>
+        </div>
+        <h3>Published by <%- publication.user.username %></h3>
+        <div class="comments">
+            <h3>Comments</h3>
+            <% if (publication.comments.length > 0) { %>
+                <ul>
+                    <% publication.comments.forEach(function(comment) { %>
+                        <li>
+                            <strong><%= comment.user.username %></strong>: <%= comment.text %>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>No comments yet.</p>
+            <% } %>
+        </div>
+
+        <div class="comment-form">
+          <h3>Add a Comment</h3>
+          <form action="/publication/<%= publication._id %>/comment" method="POST">
+              <textarea name="commentText" rows="3" placeholder="Enter your comment" required></textarea>
+              <button type="submit">Comment</button>
+          </form>
+      </div>
+    </div>
+
+</div>
+  
+<% } else { %>
+  <p>No item found.</p>
+<% } %>

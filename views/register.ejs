@@ -1,0 +1,21 @@
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<div>
+  <div>
+    <form action="/auth/register" method="POST">
+      <h3>Register</h3>
+      <div>
+        <label for="register-email">Email address</label>
+        <input type="email" name="username" id="register-email" aria-describedby="emailHelp" required>
+      </div>
+      <div>
+        <label for="register-password">Password</label>
+        <input type="password" name="password" id="register-password" required minlength="6">
+        <div id="emailHelp">Password must be at least 6 characters long.</div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>

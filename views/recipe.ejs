@@ -1,0 +1,18 @@
+    
+    <%- include("partials/navbar.ejs") %>
+
+    <h1><%= recipe.title %></h1>
+    <h1><%= recipe.cuisine %></h1>
+    <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+    <h2>Ingredients:</h2>
+    <ul>
+        <% recipe.ingredients.forEach(ingredient => { %>
+            <li><%= ingredient %></li>
+        <% }); %>
+    </ul>
+    <h2>Instructions:</h2>
+    <p><%= recipe.instructions %></p>
+
+    <form action="/recipe/<%= recipe.apiId %>"  method="POST">
+        <button type="submit">Add to my publications</button>
+    </form>

@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<nav>
+    <ul>
+        <li><a href="/index" class="nav-link">Home</a></li>
+        <li><a href="/submit-publication" class="nav-link">Create</a></li>
+        <li><a href="/auth/logout" class="nav-link">Logout</a></li>
+        <li>
+            <form action="/search-publication" method="GET">
+                <label for="searchInput">Search Publications:</label>
+                <input type="text" id="searchInput" name="f" placeholder="Enter the name of the recipe">
+                <button type="submit">Search</button>
+            </form>
+        </li>
+        <li>
+            <form action="/search-recipe" method="GET">
+                <label for="searchInput">Search for Recipes:</label>
+                <input type="text" id="searchInput" name="f">
+                <button type="submit">Search</button>
+            </form>
+        </li>
+        <li>
+            <form action="/findByIngredients" method="GET">
+                <label for="searchInput">Search for Recipes by ingredients:</label>
+                <input type="text" id="searchInput" name="f" placeholder="Enter ingredients separated by comma">
+                <button type="submit">Search</button>
+            </form>
+        </li>
+    </ul>
+</nav>
+
