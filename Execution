@@ -1,0 +1,20 @@
+# 1. Construire l'image Docker
+docker build -t mehdi0267/projet-miage:1.0 .
+
+# 2. Se connecter à Docker Hub
+docker login
+
+# 3. Pousser l'image sur Docker Hub
+docker push mehdi0267/projet-miage:1.0
+
+# 4. Exécuter l'image Docker
+docker run -p 3000:3000 mehdi0267/projet-miage:1.0
+
+minikube start
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
+kubectl get pods
+kubectl get service
+
+minikube service recette-service

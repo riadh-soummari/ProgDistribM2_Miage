@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recette-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recette-app
+  template:
+    metadata:
+      labels:
+        app: recette-app
+    spec:
+      containers:
+      - name: recette-app
+        image: mehdi0267/recette-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "prod"
+        - name: MONGO_URI
+          value: "mongodb+srv://riadhsoumari2016:bQ6JN9Qq2ZBfBqZP@database.sei53mn.mongodb.net/recipeserver"
