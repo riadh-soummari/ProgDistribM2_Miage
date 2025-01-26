@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: recette-app
-        image: mehdi0267/recette-app:latest
+        image: riadhsoummari/recette-app:latest
         ports:
         - containerPort: 3000
         env:

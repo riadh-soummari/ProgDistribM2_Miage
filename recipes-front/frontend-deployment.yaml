@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recipes-front-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recipes-front
+  template:
+    metadata:
+      labels:
+        app: recipes-front
+    spec:
+      containers:
+        - name: recipes-front
+          image: riadhsoummari/recipes-front:latest
+          ports:
+            - containerPort: 80
