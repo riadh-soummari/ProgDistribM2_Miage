@@ -33,7 +33,7 @@ const RecipesBlog = ({ recipes }) => {
           variant="contained"
           color="primary"
           sx={{ mt: 3, fontSize: '16px', padding: '10px 20px' }}
-          href="https://your-website-link.com"
+          href="http://recipes-service.default.svc.cluster.local"
         >
           Connect to the Website
         </Button>

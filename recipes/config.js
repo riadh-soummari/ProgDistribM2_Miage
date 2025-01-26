@@ -7,8 +7,8 @@ const config = {};
 
 config.cors = {
     whiteList: {
-        local: ['http://localhost:5000'], 
-        prod: ['http://192.168.49.2/recipes']
+        local: ['http://localhost:3000'], 
+        prod: ['http://localhost:3000']
     },
 };
 
